@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCUM</title>
+    <link rel="shortcut icon" href="images/uplogo.png" type="image/x-icon" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            width: 100vw;
+            background-color: #1b2838;
+            font-family: "Motiva Sans", Sans-serif;
+            
+        }
+        a {
+            text-decoration: none;
+            color: #e2e2e2;
+        }
+        a:hover {
+            color: white;
+        }
+        .up {
+            background-color: #222630;
+            height: 100px;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            width: 140px;
+            height: 60px;
+        } 
+        h2 {
+            margin-right: 0.7vw;
+        }
+        #dnoc {
+            width: 10px;
+            height: 20px;
+            transition: all 1s;
+        }
+        .chosen {
+            color: #1a9fff;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/dno-chosen.png" alt="chosen" #id="dnoc">
+    <div class="up">
+        <a href="main.html"><img src="images/logo.png" alt="logo" class="logo"></a>
+        <a href="main.html"><h2 class="chosen">Магазин</h2></a>
+        <a href="podderska.html"><h2>Поддержка</h2></a>
+    </div>
+
+
+    <script>
+        const data = null;
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.addEventListener('readystatechange', function () {
+	        if (this.readyState === this.DONE) {
+		        console.log(this.responseText);
+	            }
+            });
+
+        xhr.open('GET', 'https://epic-store-games.p.rapidapi.com/onSale?searchWords=Mount&locale=us&country=us');
+        xhr.setRequestHeader('X-RapidAPI-Key', 'fdce4e487fmsh72607b7b1d60700p1fd044jsn707c19bb3d84');
+        xhr.setRequestHeader('X-RapidAPI-Host', 'epic-store-games.p.rapidapi.com');
+
+        xhr.send(typeof data);
+        
+
+        let changewidth = document.getElementById('dnoc');
+        setTimeout(() => {
+            changewidth.style.width = '100px'
+        }, 10);
+    </script>
+</body>
+</html>
